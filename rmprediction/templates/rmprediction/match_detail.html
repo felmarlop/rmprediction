@@ -1,0 +1,24 @@
+{% extends "rmprediction/base.html" %}
+{% block content %}
+{% load staticfiles %}
+	<div class='row'>
+		<div class='col-sm-7' style="">
+			{% if match.Real_Madrid == "Home" %}
+				<h4>Real Madrid vs {{ match.away_team }}</h4>
+			{% else %}
+				<h4>{{ match.away_team }} vs Real Madrid</h4>
+			{% endif %}
+			<div class='date'>Prediction created: {{ match.published_date }}</div>
+		</div>
+		<div class='col-sm-5' style="text-align:center;">
+			{% if match.prediction == "1" %}
+				<img src="{% static "rmprediction/1.png" %}" style="border:solid; border-size:1px; border-radius: 5px 5px 5px 5px;" "alt="My image" height="50" width="130"/>
+			{% elif match.prediction == "2" %}
+				<img src="{% static "rmprediction/2.png" %}" style="border:solid; border-size:1px; border-radius: 5px 5px 5px 5px;" alt="My image" height="50" width="130"/>
+			{% else %}
+				<img src="{% static "rmprediction/x.png" %}" style="border:solid; border-size:1px; border-radius: 5px 5px 5px 5px;" alt="My image" height="50" width="130"/>
+			{% endif %}
+			<p> Confidence: {{ match.confidence }}%</p>
+		</div>
+	</div>
+{% endblock content %}

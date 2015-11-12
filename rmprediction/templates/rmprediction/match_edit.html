@@ -1,0 +1,12 @@
+{% extends "rmprediction/base.html" %}
+{% block content %}
+	{% load crispy_forms_tags %}
+	{% load staticfiles %}
+	<div style="text-align:center;">
+	    <form method="POST" onsubmit="return validateForm()" class='football'>{% csrf_token %}
+	        {% crispy form %}
+	      	<button type="submit" class="save btn btn-success" style="border-radius: 10px 10px 10px 10px;">Predict</button><br>
+	        <img id="load" class='hidden' src="{% static "rmprediction/loading.gif" %}"  style="width:100px;height:10px;">
+	    </form>
+    </div>
+{% endblock %}

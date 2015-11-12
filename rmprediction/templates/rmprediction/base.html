@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load staticfiles %}
+  <title>Real Madrid future!</title>
+  <link rel="shortcut icon" type="image/png" href="{% static "rmprediction/rmlogo.png" %}"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="{% static 'rmprediction/style.css' %}" />
+  <script src="{% static "rmprediction/js/validation.js" %}"></script>
+</head>
+<body>
+
+<div class="container">
+	<div class="page-header">
+	   	<h1><a href="/">What will happen next Real Madrid match?</a></h1>
+	</div>
+ 	<p>Find out the 'La quiniela' result for next Real Madrid match.</p>   
+ 	<div class='content container'>   
+	 	<div class="row">
+		    <div class="col-sm-6" style="background-color:lavender;">
+		    	<a href="{% url "rmprediction.views.match_new" %}" class="top-menu"><button type="button" class="btn btn-primary btn-block" style="margin:6px;">Predict a new match</button></a>	
+		    	{% block content %}
+                {% endblock %}
+		    </div>
+		    <div class="col-sm-6" style="background-color:lavenderblush;">
+		      	<h3>Last 5 predictions</h3>
+  				{% for match in matches %}
+ 				<div class='match'>
+ 					<hr>
+ 					<div class='date'><a href="{% url "rmprediction.views.match_Detail" pk=match.pk %}" %}">Prediction created: {{ match.published_date }}</a></div>
+ 					{% if match.Real_Madrid == "Home" %}
+						<p>Real Madrid vs {{ match.away_team }}</p>
+						<p> Result: {{ match.prediction }}, Confidence: {{ match.confidence }}%</p>
+					{% else %}
+						<p>{{ match.away_team }} vs Real Madrid</p>
+						<p> Result: {{ match.prediction }}, Confidence: {{ match.confidence }}%</p>
+					{% endif %}
+ 				</div>
+ 				{% endfor %}
+		    </div>
+	  	</div>
+	</div>
+</div>
+    
+</body>
+</html>

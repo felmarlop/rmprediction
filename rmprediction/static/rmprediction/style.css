@@ -1,0 +1,19 @@
+.football {
+	text-align:center;
+	padding:6px;
+    background: url("images.jpg") no-repeat;
+    background-size:100% 100%;
+    margin-bottom: 10px;
+    border:solid;
+    border-size:1px;
+    border-radius:2px 2px 2px 2px;
+
+}
+
+.hidden{
+	display: none;
+}
+
+.show{
+	display: inline;
+}
