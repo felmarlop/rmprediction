@@ -17,7 +17,7 @@ Quick start
 
 2. Include the rmpredictions URLconf in your project urls.py like this::
 
-    url(r'^rmprediction/', include('polls.urls')),
+    url(r'^rmprediction/', include('rmprediction.urls')),
 
 3. Run `python manage.py migrate` to create the rmpredictions models.
 
