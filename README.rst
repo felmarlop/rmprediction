@@ -24,4 +24,4 @@ Quick start
 4. Start the development server and visit http://127.0.0.1:8000/admin/
    to checkout your predictions. It'll be empty initially.
 
-5. Visit http://127.0.0.1:8000/ to predict your fist match.
+5. Visit http://127.0.0.1:8000/ to predict your first match.
