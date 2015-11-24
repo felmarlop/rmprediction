@@ -7,6 +7,7 @@ RMPrediction is a simple Django app to predict any Real Madrid Liga FP match usi
 
 Quick start
 -----------
+Define your BigML username and API-Key in the file Util.py of the app (api = BigML(..,..)).
 
 1. Add "rmpredictions" to your INSTALLED_APPS setting like this::
 
